@@ -1,0 +1,88 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (3.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090519145233)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "access_level" integer, "gmt_offset" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (3.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090519145233')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-05-19 09:53:19) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 46ms (View: 41, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-19 09:53:22) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-19 09:53:55) [POST]
+  Parameters: {"user"=>{"name"=>"mrnicksgirl", "gmt_offset"=>"-5", "access_level"=>"1"}, "commit"=>"Create", "authenticity_token"=>"2BtIL5yVovPc7FMnsOhiCFJaExgnSmfTgIuaPKQ5kG8="}
+  [4;35;1mUser Create (0.9ms)[0m   [0mINSERT INTO "users" ("name", "updated_at", "gmt_offset", "access_level", "created_at") VALUES('mrnicksgirl', '2009-05-19 14:53:55', -5, 1, '2009-05-19 14:53:55')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 73ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-19 09:53:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-05-19 09:53:58) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-19 09:53:59) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-19 09:54:13) [POST]
+  Parameters: {"user"=>{"name"=>"mrnickdotcom", "gmt_offset"=>"-5", "access_level"=>"2"}, "commit"=>"Create", "authenticity_token"=>"2BtIL5yVovPc7FMnsOhiCFJaExgnSmfTgIuaPKQ5kG8="}
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("name", "updated_at", "gmt_offset", "access_level", "created_at") VALUES('mrnickdotcom', '2009-05-19 14:54:13', -5, 2, '2009-05-19 14:54:13')[0m
+Redirected to http://localhost:3000/users/2
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-19 09:54:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-05-19 09:54:15) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/users]
