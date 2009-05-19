@@ -1,0 +1,48 @@
+<p>
+  <b>User:</b>
+  <%=h @character.user_id %>
+</p>
+
+<p>
+  <b>Character name:</b>
+  <%=h @character.character_name %>
+</p>
+
+<p>
+  <b>Character level:</b>
+  <%=h @character.character_level %>
+</p>
+
+<p>
+  <b>Character spec 1 name:</b>
+  <%=h @character.character_spec_1_name %>
+</p>
+
+<p>
+  <b>Character spec 1 utility:</b>
+  <%=h @character.character_spec_1_utility %>
+</p>
+
+<p>
+  <b>Character spec 2 name:</b>
+  <%=h @character.character_spec_2_name %>
+</p>
+
+<p>
+  <b>Character spec 2 utility:</b>
+  <%=h @character.character_spec_2_utility %>
+</p>
+
+<p>
+  <b>Character profession 1:</b>
+  <%=h @character.character_profession_1 %>
+</p>
+
+<p>
+  <b>Character profession 2:</b>
+  <%=h @character.character_profession_2 %>
+</p>
+
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>
