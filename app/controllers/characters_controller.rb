@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.xml
   def index
-    @characters = Character.all
+    @characters = Character.find(:all, :order => "character_level DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.xml
   def show
-    @character = Character.find(params[:id])
+    @character = current_user.characters.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,10 +40,10 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.xml
   def create
-    @character = Character.new(params[:character])
-
+    @character = current_user.characters.create(params[:character])
+    
     respond_to do |format|
-      if @character.save
+      if @character.save  
         flash[:notice] = 'Character was successfully created.'
         format.html { redirect_to(@character) }
         format.xml  { render :xml => @character, :status => :created, :location => @character }

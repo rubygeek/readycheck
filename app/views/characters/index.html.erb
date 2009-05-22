@@ -1,36 +1,26 @@
-<h1>Listing characters</h1>
+<h1>Roster</h1>
 
-<table>
+<table border="1">
   <tr>
-    <th>User</th>
-    <th>Character name</th>
-    <th>Character level</th>
-    <th>Character spec 1 name</th>
-    <th>Character spec 1 utility</th>
-    <th>Character spec 2 name</th>
-    <th>Character spec 2 utility</th>
-    <th>Character profession 1</th>
-    <th>Character profession 2</th>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Primary Spec</th>
+    <th>Secondary Spec</th>
   </tr>
 
 <% @characters.each do |character| %>
   <tr>
-    <td><%=h character.user_id %></td>
-    <td><%=h character.character_name %></td>
+    <td><%=h character.user.name%> (<%=h character.character_name %>)</td>
     <td><%=h character.character_level %></td>
-    <td><%=h character.character_spec_1_name %></td>
-    <td><%=h character.character_spec_1_utility %></td>
-    <td><%=h character.character_spec_2_name %></td>
-    <td><%=h character.character_spec_2_utility %></td>
-    <td><%=h character.character_profession_1 %></td>
-    <td><%=h character.character_profession_2 %></td>
-    <td><%= link_to 'Show', character %></td>
+    <td><%=h character.character_spec_1_name %> / <%=h character.character_spec_1_utility %></td>
+    <td><%=h character.character_spec_2_name %> / <%=h character.character_spec_2_utility %></td>
+    <td><%= link_to 'Details', character %></td>
     <td><%= link_to 'Edit', edit_character_path(character) %></td>
-    <td><%= link_to 'Destroy', character, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', character, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New character', new_character_path %>
+<%= link_to 'Add New character', new_character_path %>
